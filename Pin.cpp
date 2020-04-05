@@ -18,19 +18,39 @@ void Pin::mode(int mode)
 void Pin::on()
 {
     digitalWrite(_pin, HIGH);
+    Serial.println(_pin);
 }
 
 void Pin::off()
 {
     digitalWrite(_pin, LOW);
+    Serial.println(_pin);
 }
 
 void Pin::blink(int duration)
 {
     Pin::on();
-    delay(duration / 2);
+
+    delayMicroseconds(duration);
+    Serial.println(_pin);
     Pin::off();
-    delay(duration / 2);
+    delayMicroseconds(duration);
+    Serial.println(_pin);
+    
+}
+
+void Pin::ativo(int duration)
+{
+    Pin::on();
+    delayMicroseconds(duration);
+    Serial.println(_pin);
+}
+
+void Pin::inativo(int duration)
+{
+    Pin::off();
+    delayMicroseconds(duration);
+    Serial.println(_pin);
 }
 
 Pin::~Pin()

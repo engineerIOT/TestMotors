@@ -16,46 +16,31 @@ private:
     Pin ledPin_3; // número do pino do LED
     Pin ledPin_4; // número do pino do LED
 
-    Pin ledPin_5; // número do pino do LED
-    Pin ledPin_6; // número do pino do LED
-    Pin ledPin_7; // número do pino do LED
-    Pin ledPin_8; // número do pino do LED
-
-    int tempoDePasso = 0;
+    int tempoDePasso = 1800;
     int passos = 0;
     int passosMaximo = 0;
     int direcao = 0;
     int npasso = 1;
+    int _faseA;
+    int _faseB;
+    int _faseC;
+    int _faseD;
 
 public:
     MotorDePasso();
 
-    void definePinosMotor1(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
-    void definePinosMotor2(int ledPin_5, int ledPin_6, int ledPin_7, int ledPin_8);
+    MotorDePasso(int _faseA, int _faseB, int _faseC, int _faseD);
 
-    void passoDisableMotor1(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
-    void passoDisableMotor2(int ledPin_5, int ledPin_6, int ledPin_7, int ledPin_8);
+    void definePinosMotor(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
+    void passoDisableMotor(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
 
-    void passo_0_Motor1(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
-    void passo_0_Motor2(int ledPin_5, int ledPin_6, int ledPin_7, int ledPin_8);
-
-    void passo_1_Motor1(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
-    void passo_1_Motor2(int ledPin_5, int ledPin_6, int ledPin_7, int ledPin_8);
-
-    void passo_2_Motor1(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
-    void passo_2_Motor2(int ledPin_5, int ledPin_6, int ledPin_7, int ledPin_8);
-
-    void passo_3_Motor1(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
-    void passo_3_Motor2(int ledPin_5, int ledPin_6, int ledPin_7, int ledPin_8);
-
-    void passo_4_Motor1(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
-    void passo_4_Motor2(int ledPin_5, int ledPin_6, int ledPin_7, int ledPin_8);
-
-    void passoBipolarParaleloMotor1(int direcao, int tempoDePasso, int passosMaximo);
-    void passoBipolarSerieMotor1(int direcao, int tempoDePasso, int passosMaximo);
-
-    void passoBipolarParaleloMotor2(int direcao, int tempoDePasso, int passosMaximo);
-    void passoBipolarSerieMotor2(int direcao, int tempoDePasso, int passosMaximo);
+    void passo_0_Motor(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
+    void passo_1_Motor(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
+    void passo_2_Motor(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
+    void passo_3_Motor(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
+    void passo_4_Motor(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
+    void passoBipolarParaleloMotor(int ledPin_1, int ledPin_2, int ledPin_3, int ledPin_4);
+    void passoBipolarSerieMotor(int direcao, int tempoDePasso, int passosMaximo);
 
     virtual ~MotorDePasso();
 };
